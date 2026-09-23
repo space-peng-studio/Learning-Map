@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>測測你的金錢能量 · 金錢靈氣修煉地圖</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600;700&family=Noto+Sans+TC:wght@300;400;500;600&display=swap" rel="stylesheet">
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            linen: '#F9F6F0',
+            sand: '#F2ECE1',
+            terracotta: '#C16E53',
+            clay: '#A45840',
+            moss: '#60725A',
+            stoneWarm: '#766E65',
+            ink: '#2C2825',
+          },
+          fontFamily: {
+            serif: ['"Noto Serif TC"', 'serif'],
+            sans: ['"Noto Sans TC"', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      background-color: #F9F6F0;
+      color: #2C2825;
+      font-family: 'Noto Sans TC', sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+    .custom-radio:checked + label {
+      border-color: #C16E53;
+      background-color: #FAF2EE;
+      color: #A45840;
+      font-weight: 600;
+    }
+  </style>
+</head>
+<body class="min-h-screen py-8 px-4 md:py-14">
+  <div class="max-w-xl mx-auto">
+
+    <!-- 頂部標題區 -->
+    <header class="text-center mb-8 md:mb-10">
+      <div class="flex justify-center items-center mb-4">
+        <img 
+          src="https://via.placeholder.com/120x120/F2ECE1/A45840?text=LOGO" 
+          alt="品牌 Logo" 
+          class="h-14 w-14 md:h-16 md:w-16 object-contain rounded-2xl p-1 bg-white border border-sand shadow-sm"
+        >
+      </div>
+      
+      <span class="inline-block px-3 py-1 bg-sand text-clay text-xs tracking-wider font-medium rounded-full mb-2.5">
+        豐盛健康愛
+      </span>
+      <h1 class="text-2xl md:text-3xl font-serif font-bold text-ink leading-snug tracking-wide mb-2">
+        測測你的「金錢能量」<br class="hidden sm:block">現在走到哪一個階段？
+      </h1>
+      <p class="text-xs text-stoneWarm leading-relaxed max-w-sm mx-auto">
+        這不是幫你打世俗的財務分數，協助你看清此刻的金錢卡點與下一步突破。
+      </p>
+      <div class="w-8 h-0.5 bg-terracotta/40 mx-auto mt-4"></div>
+    </header>
+
+    <!-- 測驗表單 -->
+    <form id="quizForm" class="space-y-6">
+
+      <!-- Q1：情緒 -->
+      <section class="bg-white p-5 sm:p-6 rounded-2xl border border-sand shadow-sm">
+        <div class="mb-3">
+          <h2 class="font-serif font-bold text-ink text-sm sm:text-base">
+            Q1. 面對金錢時，你第一時間最常浮現的感受？
+          </h2>
+        </div>
+        <div class="grid grid-cols-2 sm:grid-cols-3 gap-2.5">
+          <div>
+            <input type="radio" name="emotion" id="emo-1" value="1" data-label="充滿恐懼" class="hidden custom-radio" required>
+            <label for="emo-1" class="flex items-center justify-center p-3 border border-stone-200/80 rounded-xl cursor-pointer hover:border-terracotta/50 transition text-center min-h-[50px]">
+              <span class="text-xs sm:text-sm">充滿恐懼</span>
+            </label>
+          </div>
+          <div>
+            <input type="radio" name="emotion" id="emo-2" value="2" data-label="焦慮緊張" class="hidden custom-radio">
+            <label for="emo-2" class="flex items-center justify-center p-3 border border-stone-200/80 rounded-xl cursor-pointer hover:border-terracotta/50 transition text-center min-h-[50px]">
+              <span class="text-xs sm:text-sm">焦慮緊張</span>
+            </label>
+          </div>
+          <div>
+            <input type="radio" name="emotion" id="emo-3" value="3" data-label="麻木迴避" class="hidden custom-radio">
+            <label for="emo-3" class="flex items-center justify-center p-3 border border-stone-200/80 rounded-xl cursor-pointer hover:border-terracotta/50 transition text-center min-h-[50px]">
+              <span class="text-xs sm:text-sm">麻木迴避</span>
+            </label>
+          </div>
+          <div>
+            <input type="radio" name="emotion" id="emo-4" value="4" data-label="平靜無感" class="hidden custom-radio">
+            <label for="emo-4" class="flex items-center justify-center p-3 border border-stone-200/80 rounded-xl cursor-pointer hover:border-terracotta/50 transition text-center min-h-[50px]">
+              <span class="text-xs sm:text-sm">平靜無感</span>
+            </label>
+          </div>
+          <div>
+            <input type="radio" name="emotion" id="emo-5" value="5" data-label="好奇開放" class="hidden custom-radio">
+            <label for="emo-5" class="flex items-center justify-center p-3 border border-stone-200/80 rounded-xl cursor-pointer hover:border-terracotta/50 transition text-center min-h-[50px]">
+              <span class="text-xs sm:text-sm">好奇開放</span>
+            </label>
+          </div>
+          <div>
+            <input type="radio" name="emotion" id="emo-6" value="6" data-label="感謝喜悅" class="hidden custom-radio">
+            <label for="emo-6" class="flex items-center justify-center p-3 border border-stone-200/80 rounded-xl cursor-pointer hover:border-terracotta/50 transition text-center min-h-[50px]">
+              <span class="text-xs sm:text-sm">感謝喜悅</span>
+            </label>
+          </div>
+        </div>
+      </section>
+
+      <!-- Q2：信念 -->
+      <section class="bg-white p-5 sm:p-6 rounded-2xl border border-sand shadow-sm">
+        <div class="mb-3">
+          <h2 class="font-serif font-bold text-ink text-sm sm:text-base">
+            Q2. 你覺得自己與金錢的深層關係是？
+          </h2>
+        </div>
+        <div class="grid grid-cols-2 sm:grid-cols-3 gap-2.5">
+          <div>
+            <input type="radio" name="belief" id="bel-1" value="1" data-label="我不配有錢" class="hidden custom-radio" required>
+            <label for="bel-1" class="flex items-center justify-center p-3 border border-stone-200/80 rounded-xl cursor-pointer hover:border-terracotta/50 transition text-center min-h-[50px]">
+              <span class="text-xs sm:text-sm">我不配有錢</span>
+            </label>
+          </div>
+          <div>
+            <input type="radio" name="belief" id="bel-2" value="2" data-label="錢很難賺" class="hidden custom-radio">
+            <label for="bel-2" class="flex items-center justify-center p-3 border border-stone-200/80 rounded-xl cursor-pointer hover:border-terracotta/50 transition text-center min-h-[50px]">
+              <span class="text-xs sm:text-sm">錢很難賺</span>
+            </label>
+          </div>
+          <div>
+            <input type="radio" name="belief" id="bel-3" value="3" data-label="有點懷疑" class="hidden custom-radio">
+            <label for="bel-3" class="flex items-center justify-center p-3 border border-stone-200/80 rounded-xl cursor-pointer hover:border-terracotta/50 transition text-center min-h-[50px]">
+              <span class="text-xs sm:text-sm">有點懷疑</span>
+            </label>
+          </div>
+          <div>
+            <input type="radio" name="belief" id="bel-4" value="4" data-label="中立不確定" class="hidden custom-radio">
+            <label for="bel-4" class="flex items-center justify-center p-3 border border-stone-200/80 rounded-xl cursor-pointer hover:border-terracotta/50 transition text-center min-h-[50px]">
+              <span class="text-xs sm:text-sm">中立不確定</span>
+            </label>
+          </div>
+          <div>
+            <input type="radio" name="belief" id="bel-5" value="5" data-label="錢會找我" class="hidden custom-radio">
+            <label for="bel-5" class="flex items-center justify-center p-3 border border-stone-200/80 rounded-xl cursor-pointer hover:border-terracotta/50 transition text-center min-h-[50px]">
+              <span class="text-xs sm:text-sm">錢會找我</span>
+            </label>
+          </div>
+          <div>
+            <input type="radio" name="belief" id="bel-6" value="6" data-label="我值得豐盛" class="hidden custom-radio">
+            <label for="bel-6" class="flex items-center justify-center p-3 border border-stone-200/80 rounded-xl cursor-pointer hover:border-terracotta/50 transition text-center min-h-[50px]">
+              <span class="text-xs sm:text-sm">我值得豐盛</span>
+            </label>
+          </div>
+        </div>
+      </section>
+
+      <!-- Q3：行為 -->
+      <section class="bg-white p-5 sm:p-6 rounded-2xl border border-sand shadow-sm">
+        <div class="mb-3">
+          <h2 class="font-serif font-bold text-ink text-sm sm:text-base">
+            Q3. 日常生活裡，你有做理財行動嗎？
+          </h2>
+        </div>
+        <div class="grid grid-cols-2 sm:grid-cols-3 gap-2.5">
+          <div>
+            <input type="radio" name="action" id="act-1" value="1" data-label="完全沒做" class="hidden custom-radio" required>
+            <label for="act-1" class="flex items-center justify-center p-3 border border-stone-200/80 rounded-xl cursor-pointer hover:border-terracotta/50 transition text-center min-h-[50px]">
+              <span class="text-xs sm:text-sm">完全沒在管</span>
+            </label>
+          </div>
+          <div>
+            <input type="radio" name="action" id="act-2" value="2" data-label="偶爾記帳" class="hidden custom-radio">
+            <label for="act-2" class="flex items-center justify-center p-3 border border-stone-200/80 rounded-xl cursor-pointer hover:border-terracotta/50 transition text-center min-h-[50px]">
+              <span class="text-xs sm:text-sm">偶爾看一眼</span>
+            </label>
+          </div>
+          <div>
+            <input type="radio" name="action" id="act-3" value="3" data-label="有存錢習慣" class="hidden custom-radio">
+            <label for="act-3" class="flex items-center justify-center p-3 border border-stone-200/80 rounded-xl cursor-pointer hover:border-terracotta/50 transition text-center min-h-[50px]">
+              <span class="text-xs sm:text-sm">有固定存錢習慣</span>
+            </label>
+          </div>
+          <div>
+            <input type="radio" name="action" id="act-4" value="4" data-label="有投資計畫" class="hidden custom-radio">
+            <label for="act-4" class="flex items-center justify-center p-3 border border-stone-200/80 rounded-xl cursor-pointer hover:border-terracotta/50 transition text-center min-h-[50px]">
+              <span class="text-xs sm:text-sm">有具體投資計畫</span>
+            </label>
+          </div>
+          <div>
+            <input type="radio" name="action" id="act-5" value="5" data-label="自動化運作中" class="hidden custom-radio">
+            <label for="act-5" class="flex items-center justify-center p-3 border border-stone-200/80 rounded-xl cursor-pointer hover:border-terracotta/50 transition text-center min-h-[50px]">
+              <span class="text-xs sm:text-sm">自動分流運作中</span>
+            </label>
+          </div>
+          <div>
+            <input type="radio" name="action" id="act-6" value="6" data-label="每月穩複盤" class="hidden custom-radio">
+            <label for="act-6" class="flex items-center justify-center p-3 border border-stone-200/80 rounded-xl cursor-pointer hover:border-terracotta/50 transition text-center min-h-[50px]">
+              <span class="text-xs sm:text-sm">每月穩定檢視成長</span>
+            </label>
+          </div>
+        </div>
+      </section>
+
+      <!-- Q4：資產 -->
+      <section class="bg-white p-5 sm:p-6 rounded-2xl border border-sand shadow-sm">
+        <div class="mb-3">
+          <h2 class="font-serif font-bold text-ink text-sm sm:text-base">
+            Q4. 您的淨資產狀態大約落在哪裡？
+          </h2>
+        </div>
+        <div class="grid grid-cols-2 sm:grid-cols-3 gap-2.5">
+          <div>
+            <input type="radio" name="asset" id="ass-1" value="1" data-label="負債狀態" class="hidden custom-radio" required>
+            <label for="ass-1" class="flex items-center justify-center p-3 border border-stone-200/80 rounded-xl cursor-pointer hover:border-terracotta/50 transition text-center min-h-[50px]">
+              <span class="text-xs sm:text-sm">負債・貸款壓力中</span>
+            </label>
+          </div>
+          <div>
+            <input type="radio" name="asset" id="ass-2" value="2" data-label="0－30萬" class="hidden custom-radio">
+            <label for="ass-2" class="flex items-center justify-center p-3 border border-stone-200/80 rounded-xl cursor-pointer hover:border-terracotta/50 transition text-center min-h-[50px]">
+              <span class="text-xs sm:text-sm">0－30 萬</span>
+            </label>
+          </div>
+          <div>
+            <input type="radio" name="asset" id="ass-3" value="3" data-label="30－100萬" class="hidden custom-radio">
+            <label for="ass-3" class="flex items-center justify-center p-3 border border-stone-200/80 rounded-xl cursor-pointer hover:border-terracotta/50 transition text-center min-h-[50px]">
+              <span class="text-xs sm:text-sm">30－100 萬</span>
+            </label>
+          </div>
+          <div>
+            <input type="radio" name="asset" id="ass-4" value="4" data-label="100－500萬" class="hidden custom-radio">
+            <label for="ass-4" class="flex items-center justify-center p-3 border border-stone-200/80 rounded-xl cursor-pointer hover:border-terracotta/50 transition text-center min-h-[50px]">
+              <span class="text-xs sm:text-sm">100－500 萬</span>
+            </label>
+          </div>
+          <div>
+            <input type="radio" name="asset" id="ass-5" value="5" data-label="500－1000萬" class="hidden custom-radio">
+            <label for="ass-5" class="flex items-center justify-center p-3 border border-stone-200/80 rounded-xl cursor-pointer hover:border-terracotta/50 transition text-center min-h-[50px]">
+              <span class="text-xs sm:text-sm">500－1000 萬</span>
+            </label>
+          </div>
+          <div>
+            <input type="radio" name="asset" id="ass-6" value="6" data-label="1000萬以上" class="hidden custom-radio">
+            <label for="ass-6" class="flex items-center justify-center p-3 border border-stone-200/80 rounded-xl cursor-pointer hover:border-terracotta/50 transition text-center min-h-[50px]">
+              <span class="text-xs sm:text-sm">1000 萬以上</span>
+            </label>
+          </div>
+        </div>
+      </section>
+
+      <button type="submit" class="w-full bg-clay text-linen hover:bg-terracotta transition py-4 rounded-xl font-medium tracking-wide shadow-sm text-sm sm:text-base flex items-center justify-center gap-2">
+        <span>解鎖我的金錢能量診斷</span>
+        <span>→</span>
+      </button>
+    </form>
+
+    <!-- 結果區塊 -->
+    <div id="resultArea" class="hidden mt-10 transition-all duration-500">
+      <div class="bg-white rounded-3xl p-6 sm:p-8 border border-sand shadow-sm">
+
+        <!-- 1. 大標題 ＋ 階梯晉升箭頭地圖 -->
+        <div class="mb-7 pb-6 border-b border-sand">
+          <h2 class="text-xl sm:text-2xl font-serif font-bold text-ink mb-4 tracking-wide text-left sm:text-center">
+            你現在的金錢能量在這個階段
+          </h2>
+          
+          <div class="flex items-center justify-between gap-1 sm:gap-2">
+            <!-- 種子期 -->
+            <div id="step-seed" class="flex-1 p-2 sm:p-2.5 rounded-xl border border-sand bg-white/70 text-center transition-all duration-300 relative">
+              <div class="text-base sm:text-lg mb-0.5">🌱</div>
+              <div class="text-xs font-bold text-ink title-text">種子期</div>
+              <div class="text-[10px] text-stoneWarm opacity-75 sub-text">打底扎根</div>
+            </div>
+
+            <div class="text-stoneWarm/40 font-bold text-xs sm:text-sm flex-shrink-0">➔</div>
+
+            <!-- 成長期 -->
+            <div id="step-growth" class="flex-1 p-2 sm:p-2.5 rounded-xl border border-sand bg-white/70 text-center transition-all duration-300 relative">
+              <div class="text-base sm:text-lg mb-0.5">🌿</div>
+              <div class="text-xs font-bold text-ink title-text">成長期</div>
+              <div class="text-[10px] text-stoneWarm opacity-75 sub-text">建立結構</div>
+            </div>
+
+            <div class="text-stoneWarm/40 font-bold text-xs sm:text-sm flex-shrink-0">➔</div>
+
+            <!-- 豐盛期 -->
+            <div id="step-abundance" class="flex-1 p-2 sm:p-2.5 rounded-xl border border-sand bg-white/70 text-center transition-all duration-300 relative">
+              <div class="text-base sm:text-lg mb-0.5">🌳</div>
+              <div class="text-xs font-bold text-ink title-text">豐盛期</div>
+              <div class="text-[10px] text-stoneWarm opacity-75 sub-text">複利流動</div>
+            </div>
+
+            <div class="text-stoneWarm/40 font-bold text-xs sm:text-sm flex-shrink-0">➔</div>
+
+            <!-- 宗師期 -->
+            <div id="step-master" class="flex-1 p-2 sm:p-2.5 rounded-xl border border-sand bg-white/70 text-center transition-all duration-300 relative">
+              <div class="text-base sm:text-lg mb-0.5">✨</div>
+              <div class="text-xs font-bold text-ink title-text">宗師期</div>
+              <div class="text-[10px] text-stoneWarm opacity-75 sub-text">能量轉化</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. 痛點引言與診斷（標籤與標註文字已刪除） -->
+        <div class="mb-6">
+          <div id="painQuote" class="p-4 bg-sand/40 border border-sand rounded-2xl text-xs sm:text-sm text-ink/90 italic mb-4 leading-relaxed font-serif"></div>
+          <h3 id="resDiagnosis" class="text-lg sm:text-xl font-serif font-bold text-clay mb-2 leading-snug"></h3>
+          <p id="resInsight" class="text-xs sm:text-sm text-stoneWarm leading-relaxed"></p>
+        </div>
+
+        <!-- 3. 金錢能量儀表板 -->
+        <div class="bg-linen rounded-2xl p-4 sm:p-5 border border-sand mb-6">
+          <div class="text-sm sm:text-base font-bold text-ink mb-2 text-center tracking-wide">
+            金錢能量儀表板
+          </div>
+          <div class="w-[220px] h-[200px] mx-auto flex items-center justify-center mb-3">
+            <canvas id="radarCanvas" class="w-[220px] h-[200px]"></canvas>
+          </div>
+          <div class="grid grid-cols-2 gap-2 text-[11px] pt-3 border-t border-sand">
+            <div class="bg-white p-2 rounded-lg border border-sand flex justify-between">
+              <span class="text-stoneWarm">情緒</span>
+              <span id="txt-emo" class="font-bold text-clay"></span>
+            </div>
+            <div class="bg-white p-2 rounded-lg border border-sand flex justify-between">
+              <span class="text-stoneWarm">信念</span>
+              <span id="txt-bel" class="font-bold text-clay"></span>
+            </div>
+            <div class="bg-white p-2 rounded-lg border border-sand flex justify-between">
+              <span class="text-stoneWarm">行為</span>
+              <span id="txt-act" class="font-bold text-clay"></span>
+            </div>
+            <div class="bg-white p-2 rounded-lg border border-sand flex justify-between">
+              <span class="text-stoneWarm">資產</span>
+              <span id="txt-ass" class="font-bold text-stoneWarm"></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4. 當期對症處方 -->
+        <div class="bg-terracotta/10 rounded-2xl p-4 sm:p-5 border border-terracotta/20 mb-6">
+          <div class="text-xs sm:text-sm font-bold text-clay mb-1.5 flex items-center gap-1.5">
+            <span>🎯</span> 現階段可以做的基礎練習：
+          </div>
+          <p id="resPrescription" class="text-xs sm:text-sm text-ink/85 leading-relaxed"></p>
+        </div>
+
+        <!-- 5. 導流加 LINE 下載講義 -->
+        <div class="pt-5 border-t border-sand text-center bg-sand/30 -mx-6 -mb-6 sm:-mx-8 sm:-mb-8 p-6 rounded-b-3xl">
+          <span class="inline-block px-2.5 py-0.5 bg-clay text-white text-[11px] font-bold rounded-full mb-2.5">
+            我要金錢能量升級
+          </span>
+          <h4 class="font-serif font-bold text-ink text-base mb-1.5">
+            想做更多進階的練習嗎？
+          </h4>
+          <p class="text-xs text-stoneWarm mb-4 max-w-sm mx-auto leading-relaxed">
+            免費獲得練習地圖講義內含 29 項金錢靈氣專屬工具清單、符號冥想操作指南與 12 個月成長軌跡表。（LINE ID: @104onvjd）
+          </p>
+          <a href="https://line.me/R/ti/p/@104onvjd" target="_blank" class="inline-flex items-center justify-center gap-2 w-full py-3.5 px-6 rounded-xl bg-ink text-linen hover:bg-clay transition text-xs sm:text-sm font-medium shadow">
+            <span>加 LINE 免費領取 完整練習地圖 </span>
+            <span>→</span>
+          </a>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    function drawRadar(scores) {
+      const canvas = document.getElementById('radarCanvas');
+      const ctx = canvas.getContext('2d');
+      const dpr = window.devicePixelRatio || 1;
+      const w = 220, h = 200;
+      canvas.width = w * dpr;
+      canvas.height = h * dpr;
+      canvas.style.width = w + 'px';
+      canvas.style.height = h + 'px';
+      ctx.scale(dpr, dpr);
+      ctx.clearRect(0, 0, w, h);
+
+      const cx = w / 2, cy = h / 2, radius = 60;
+      const angles = [-Math.PI / 2, 0, Math.PI / 2, Math.PI];
+      const labels = ['情緒', '信念', '行為', '資產'];
+
+      for (let l = 1; l <= 6; l++) {
+        ctx.beginPath();
+        const r = (radius / 6) * l;
+        for (let i = 0; i < 4; i++) {
+          const x = cx + r * Math.cos(angles[i]);
+          const y = cy + r * Math.sin(angles[i]);
+          if (i === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
+        }
+        ctx.closePath();
+        ctx.strokeStyle = l === 6 ? '#D5CCC0' : '#EFE9E0';
+        ctx.stroke();
+      }
+
+      ctx.fillStyle = '#766E65';
+      ctx.font = '10px "Noto Sans TC"';
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+      for (let i = 0; i < 4; i++) {
+        const x = cx + (radius + 16) * Math.cos(angles[i]);
+        const y = cy + (radius + 16) * Math.sin(angles[i]);
+        ctx.fillText(labels[i], x, y);
+      }
+
+      ctx.beginPath();
+      for (let i = 0; i < 4; i++) {
+        const r = (radius / 6) * scores[i];
+        const x = cx + r * Math.cos(angles[i]);
+        const y = cy + r * Math.sin(angles[i]);
+        if (i === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
+      }
+      ctx.closePath();
+      ctx.fillStyle = 'rgba(193, 110, 83, 0.25)';
+      ctx.fill();
+      ctx.strokeStyle = '#C16E53';
+      ctx.lineWidth = 2;
+      ctx.stroke();
+    }
+
+    function setStep(key) {
+      const keys = ['seed', 'growth', 'abundance', 'master'];
+      keys.forEach(k => {
+        const el = document.getElementById(`step-${k}`);
+        const existingBadge = el.querySelector('.current-badge');
+        if (existingBadge) existingBadge.remove();
+
+        if (k === key) {
+          el.className = 'flex-1 p-2 sm:p-2.5 rounded-xl border-2 border-clay bg-[#FAF2EE] text-center shadow-md transform scale-105 relative z-10';
+          const title = el.querySelector('.title-text');
+          const sub = el.querySelector('.sub-text');
+          if (title) title.className = 'text-xs font-bold text-clay title-text';
+          if (sub) sub.className = 'text-[10px] text-clay/90 font-medium sub-text';
+
+          const badge = document.createElement('span');
+          badge.className = 'current-badge absolute -top-2.5 left-1/2 -translate-x-1/2 bg-clay text-white text-[9px] px-1.5 py-0.5 rounded-full whitespace-nowrap shadow-sm font-sans';
+          badge.textContent = '你在這裡';
+          el.appendChild(badge);
+        } else {
+          el.className = 'flex-1 p-2 sm:p-2.5 rounded-xl border border-sand/70 bg-white/50 text-center opacity-60';
+          const title = el.querySelector('.title-text');
+          const sub = el.querySelector('.sub-text');
+          if (title) title.className = 'text-xs font-medium text-stoneWarm title-text';
+          if (sub) sub.className = 'text-[10px] text-stoneWarm/80 sub-text';
+        }
+      });
+    }
+
+    document.getElementById('quizForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const emotion = parseInt(document.querySelector('input[name="emotion"]:checked').value);
+      const belief = parseInt(document.querySelector('input[name="belief"]:checked').value);
+      const action = parseInt(document.querySelector('input[name="action"]:checked').value);
+      const asset = parseInt(document.querySelector('input[name="asset"]:checked').value);
+
+      const consciousScore = (emotion + belief + action) / 3;
+
+      let stageKey = 'seed';
+      if (consciousScore >= 5.3) {
+        stageKey = 'master';
+      } else if (consciousScore >= 4.3) {
+        stageKey = 'abundance';
+      } else if (consciousScore >= 2.7) {
+        stageKey = 'growth';
+      } else {
+        stageKey = 'seed';
+      }
+
+      let painQuote = "";
+      let resDiagnosis = "";
+      let resInsight = "";
+      let resPrescription = "";
+
+      // 原型 1：【靈性先鋒型】（心靈富足，但現實負債/起步）
+      if (consciousScore - asset >= 1.5) {
+        painQuote = "「明明學了很多吸引力法則、懂感恩、心態樂觀，為什麼現實存摺還是常被卡債或帳單追著跑？」";
+        resDiagnosis = "你的靈性頻率已走在前面，但能量缺乏物質容器落地。";
+        resInsight = "你擁有非常強大的配得感與顯化天賦，這很珍貴。但光有高頻心態，若沒有給它一個三維世界的管道，能量就像水蒸氣一樣散掉了。負債不是失敗，只是過去留下的客觀舊印記。";
+        resPrescription = "「建立現實骨架」——本期先不用花時間冥想「我值不值得」，而是勇敢打開個人資產負債表看清數字，開一個專屬帳戶存入第一筆錢，為能量搭起錨定點。";
+      }
+      // 原型 2：【守護實幹型】（資產高，但心態焦慮緊繃）
+      else if (asset - consciousScore >= 1.5) {
+        painQuote = "「存款幾百萬、工作也不錯，但看帳單、看到市場波動，心臟依然狂跳、習慣性感到匱乏。」";
+        resDiagnosis = "你的資產走在前面，但心靈神經系統還在為過去緊張。";
+        resInsight = "你在三維物質世界非常努力且有實力，但你的身體記憶還停留在過去匱乏的創傷裡。存摺數字滿了，但內在的安全感容器漏水了。";
+        resPrescription = "「安頓緊繃神經」——你不需要更拼命賺錢，睡前對今天的金錢往來說「謝謝你，祝福你」，練習信任自己配得上這份豐盛。";
+      }
+      // 原型 3：【破土萌芽型】（心智與資產皆在低位）
+      else if (consciousScore <= 2.6 && asset <= 2) {
+        painQuote = "「被生活開銷追著跑，一提到錢只有恐懼與無力感，完全不知道從何著手。」";
+        resDiagnosis = "種子正在破土，晚出發不是落後，路剛好從這裡開始。";
+        resInsight = "你現在的無力感很真實。請不要急著追求大顯化或賺大錢，當前唯一的目標不是「暴富」，而是「先在心底長出第一個微小而堅定的安全感」。";
+        resPrescription = "「替換匱乏語言」——停止在心裡默念「我好窮、錢很難賺」，換成「宇宙正在支持我」；從每個月存入一小筆固定金額開始，建立對現實的掌控感。";
+      }
+      // 原型 4：【順流豐盛型】（四維相對平衡）
+      else {
+        painQuote = "「有儲蓄有投資、心態平靜，但好像卡在一個平原期，不知道下一個台階在哪裡。」";
+        resDiagnosis = "根基已扎實，你正站在『從個人走向循環』的擴張點。";
+        resInsight = "你的理財骨架與心念都已就位。此時的瓶頸不是技術，而是格局——從「為自己累積財富」跨入「讓財富向外流動、創造更大價值」。";
+        resPrescription = "「啟動複利與世界連結」——在日常消費或給出金錢時放下得失心，練習全然祝福，讓金錢成為流過你的溫暖能量。";
+      }
+
+      setStep(stageKey);
+      document.getElementById('painQuote').textContent = painQuote;
+      document.getElementById('resDiagnosis').textContent = resDiagnosis;
+      document.getElementById('resInsight').textContent = resInsight;
+      document.getElementById('resPrescription').textContent = resPrescription;
+
+      document.getElementById('txt-emo').textContent = `Lv.${emotion}`;
+      document.getElementById('txt-bel').textContent = `Lv.${belief}`;
+      document.getElementById('txt-act').textContent = `Lv.${action}`;
+      document.getElementById('txt-ass').textContent = `Lv.${asset}`;
+
+      drawRadar([emotion, belief, action, asset]);
+
+      const resArea = document.getElementById('resultArea');
+      resArea.classList.remove('hidden');
+      resArea.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  </script>
+</body>
+</html>
