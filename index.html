@@ -184,6 +184,28 @@
     }
     @keyframes sweep { 0% { background-position: 150% 0; } 60%,100% { background-position: -100% 0; } }
 
+    /* 手機版選單 */
+    .menu-icon { position: relative; width: 16px; height: 12px; display: block; }
+    .menu-icon i { position: absolute; left: 0; width: 100%; height: 1.5px; border-radius: 2px; background: #26222D; transition: transform .35s ease, opacity .25s ease, top .35s ease; }
+    .menu-icon i:nth-child(1) { top: 0; }
+    .menu-icon i:nth-child(2) { top: 5px; }
+    .menu-icon i:nth-child(3) { top: 10px; }
+    .menu-open .menu-icon i:nth-child(1) { top: 5px; transform: rotate(45deg); }
+    .menu-open .menu-icon i:nth-child(2) { opacity: 0; }
+    .menu-open .menu-icon i:nth-child(3) { top: 5px; transform: rotate(-45deg); }
+    .mobile-menu { opacity: 0; visibility: hidden; transition: opacity .4s ease, visibility .4s; }
+    .menu-open .mobile-menu { opacity: 1; visibility: visible; }
+    .menu-link {
+      display: flex; align-items: baseline; gap: .5rem;
+      padding: 1.1rem 0; border-bottom: 1px solid #E7DFD6;
+      font-family: 'Noto Serif TC', serif; font-size: 1.5rem; font-weight: 600; letter-spacing: .12em; color: #26222D;
+      opacity: 0; transform: translateY(16px); transition: opacity .5s ease, transform .5s ease;
+    }
+    .menu-open .menu-link { opacity: 1; transform: none; }
+    .menu-open .menu-link:nth-child(2) { transition-delay: .06s; }
+    .menu-open .menu-link:nth-child(3) { transition-delay: .12s; }
+    .menu-open { overflow: hidden; }
+
     @media (prefers-reduced-motion: reduce) {
       .dash-glow, .dash-ring { animation: none; }
       .reveal { opacity: 1; transform: none; transition: none; }
@@ -207,11 +229,35 @@
         <a href="#stages" class="hover:text-plum transition">四個階段</a>
         <a href="#quiz" class="hover:text-plum transition">能量測驗</a>
       </nav>
-      <a href="#quiz" class="btn-shine inline-flex items-center gap-2 rounded-full bg-ink text-ivory px-5 py-2.5 text-[12px] sm:text-[13px] tracking-[0.12em] hover:bg-plum transition">
-        開始測驗
-      </a>
+      <div class="flex items-center gap-2">
+        <a href="#quiz" class="btn-shine inline-flex items-center gap-2 rounded-full bg-ink text-ivory px-5 py-2.5 text-[12px] sm:text-[13px] tracking-[0.12em] hover:bg-plum transition">
+          開始測驗
+        </a>
+        <!-- 手機版選單按鈕 -->
+        <button id="menuBtn" type="button" class="md:hidden relative w-10 h-10 rounded-full border border-ink/15 bg-white/60 backdrop-blur flex items-center justify-center" aria-label="開啟選單" aria-expanded="false" aria-controls="mobileMenu">
+          <span class="menu-icon"><i></i><i></i><i></i></span>
+        </button>
+      </div>
     </div>
   </header>
+
+  <!-- 手機版選單面板 -->
+  <div id="mobileMenu" class="mobile-menu md:hidden fixed inset-0 z-40" aria-hidden="true">
+    <div class="absolute inset-0 bg-ivory/95 backdrop-blur-xl"></div>
+    <div class="orb bg-rose w-[260px] h-[260px] -top-10 -left-20" aria-hidden="true"></div>
+    <div class="orb bg-peri w-[240px] h-[240px] bottom-10 -right-20 opacity-40" aria-hidden="true"></div>
+    <nav class="relative h-full flex flex-col justify-center px-8 pt-20 pb-10">
+      <a href="#stages" class="menu-link"><span class="font-display text-grad text-2xl w-10">01</span>四個階段</a>
+      <a href="#quiz" class="menu-link"><span class="font-display text-grad text-2xl w-10">02</span>能量測驗</a>
+      <a href="https://line.me/R/ti/p/@104onvjd" target="_blank" rel="noopener" class="menu-link"><span class="font-display text-grad text-2xl w-10">03</span>報名線上分享會</a>
+      <div class="mt-10 text-[11px] tracking-[0.4em] text-gold">10/20（二）20:00・名額有限</div>
+      <div class="mt-auto flex flex-wrap gap-x-6 gap-y-2 text-sm text-mist">
+        <a href="https://www.instagram.com/healthy.theta/" target="_blank" rel="noopener" class="hover:text-plum">Instagram</a>
+        <a href="https://www.facebook.com/healthy.theta" target="_blank" rel="noopener" class="hover:text-plum">粉絲專頁</a>
+        <a href="https://lightofcreator14913.com" target="_blank" rel="noopener" class="hover:text-plum">官方網站</a>
+      </div>
+    </nav>
+  </div>
 
   <main id="top" class="relative z-10">
 
@@ -619,7 +665,37 @@
 
   <script>
     const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    // 每次進站都從首圖開始：不還原上次捲動位置，也忽略網址上殘留的 #quiz 等錨點
+    if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+    if (location.hash) history.replaceState(null, '', location.pathname + location.search);
+    window.scrollTo(0, 0);
+    window.addEventListener('pageshow', () => window.scrollTo(0, 0));
+
+    // 站內錨點連結改用捲動，不把 #quiz 寫進網址
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        const target = document.querySelector(a.getAttribute('href'));
+        if (!target) return;
+        e.preventDefault();
+        target.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'start' });
+      });
+    });
     document.getElementById('year').textContent = new Date().getFullYear();
+
+    // ---- 手機版選單 ----
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    function setMenu(open) {
+      document.body.classList.toggle('menu-open', open);
+      menuBtn.setAttribute('aria-expanded', open);
+      menuBtn.setAttribute('aria-label', open ? '關閉選單' : '開啟選單');
+      mobileMenu.setAttribute('aria-hidden', !open);
+    }
+    menuBtn.addEventListener('click', () => setMenu(!document.body.classList.contains('menu-open')));
+    mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setMenu(false), true));
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') setMenu(false); });
+    window.addEventListener('resize', () => { if (window.innerWidth >= 768) setMenu(false); });
 
     // ---- 頁首滾動效果 ----
     const header = document.getElementById('siteHeader');
